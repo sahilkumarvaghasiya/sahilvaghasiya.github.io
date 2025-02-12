@@ -40,6 +40,49 @@ let progressjs = setInterval(() => {
   }
 }, jsspeed);
 
+// Scrum progress circular bar
+let scrumProgress = document.querySelector(".scrum"),
+  scrumValue = document.querySelector(".scrum-progress");
+
+let scrumStartValue = 0,
+  scrumEndValue = 75, // Set Scrum progress percentage
+  scrumSpeed = 30;
+
+let progressScrum = setInterval(() => {
+  scrumStartValue++;
+
+  scrumValue.textContent = `${scrumStartValue}%`;
+  scrumProgress.style.background = `conic-gradient(#ff9f40 ${
+    scrumStartValue * 3.6
+  }deg, #ededed 0deg)`;
+
+  if (scrumStartValue == scrumEndValue) {
+    clearInterval(progressScrum);
+  }
+}, scrumSpeed);
+
+// Cloud & Azure Deployment progress circular bar
+let cloudProgress = document.querySelector(".cloud"),
+  cloudValue = document.querySelector(".cloud-progress");
+
+let cloudStartValue = 0,
+  cloudEndValue = 85, // Set Cloud progress percentage
+  cloudSpeed = 30;
+
+let progressCloud = setInterval(() => {
+  cloudStartValue++;
+
+  cloudValue.textContent = `${cloudStartValue}%`;
+  cloudProgress.style.background = `conic-gradient(#4285F4 ${
+    cloudStartValue * 3.6
+  }deg, #ededed 0deg)`;
+
+  if (cloudStartValue == cloudEndValue) {
+    clearInterval(progressCloud);
+  }
+}, cloudSpeed);
+
+
 // php progress circular bar 
 let phpProgress = document.querySelector(".php"),
   phpValue = document.querySelector(".php-progress");
